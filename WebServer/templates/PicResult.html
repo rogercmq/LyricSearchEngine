@@ -1,0 +1,126 @@
+$def with (result)
+$if result:
+    <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Simple Search For Lyrics</title>
+        <meta name="description" content="Simple" />
+        <meta name="keywords" content="Simple" />
+        <link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="/static/css/all.css" />
+        <script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.cycle.all.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.main.js"></script>
+        <script type="text/javascript" src="/static/js/clear-fields.js"></script>
+    </head>
+    <body class="inner-page">
+        <div class="wrapper-holder">
+            <div id="wrapper">
+                <div id="header">
+                    <div class="slogan">
+                        <a href="mailto:info@bestpsdfreebies.com"><img src="/static/images/social-icons/Mail.png" alt="email" /></a>&nbsp;
+                        <a href="../../facebook.com/bestpsdfreebies" target="_blank"><img src="/static/images/social-icons/Facebook.png" alt="Facebook" /></a>&nbsp;
+                        <a href="../../twitter.com/bestpsdfreebies" target="_blank"><img src="/static/images/social-icons/Twitter.png" alt="Twitter" /></a>&nbsp;
+                        <a href="#"><img src="/static/images/social-icons/RSS.png" alt="RSS Feed" /></a>
+                    </div>
+                    <strong class="logo"><a href="./">歌词引擎</a></strong>
+				    <div class="header-area">
+                        <div class="search-form">
+                            <form id='form' action="/img_res" method="POST" enctype="multipart/form-data">
+                                <input type="file" class ='SUBMIT' id='img_submit' name="img_input" multiple="multiple">
+                                <input type="image" class ='SUBMITGO' src="/static/images/btn-search.gif"/>
+                            </form>
+                        </div>
+					    <ul id="nav">
+                            <li class="active"><a href="./">我们的主页</a></li>
+                            <li><a href="./img">图片搜索</a></li>
+                            <li><a href="./about">关于我们</a></li>
+                            <li>
+                                <a class="drop-item"><span>相关链接</span></a>
+                                <ul>
+                                    <li><a href="http://www.xiami.com">虾米音乐</a></li>
+                                    <li><a href="http://www.sina.com.cn">新浪首页</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+				    </div>
+                </div><!-- /header -->
+                <div id="main">
+                    <div id="content">
+                        <div class="ttl-holder">
+                            <h1>以下是“ $result[0] ”的搜索结果</h1>
+                        </div>
+                        <div class="txt-section">
+                            $for mes in result[1]:
+                                <div class="staff">
+                                    <img class="left" src='$mes[4]' alt='找不到图片' />
+
+                                    <h4 class="top">$mes[1]</h4>
+                                    <p class="edu" style="font-size: 20px; line-height: 20px;">$:mes[3]<br></p>
+                                    <p class="edu" style="font-size: 15px; line-height: 20px;">$:mes[2]<br></p>
+                                    $code:
+                                        def split233(genrestring):
+                                            gen = genrestring.split(',')
+                                            return gen
+                                    $for genre in split233(mes[5]):
+                                        <h5>$genre</h5>
+
+                                    <form action="/mus" method="POST" target='_blank'>
+                                        <input type="hidden" name='id' value='$mes[0]'>
+                                        <input class="contactme" type='submit' value='查看详细信息'>
+                                    </form>
+
+                                </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div><!-- /content -->
+
+                    <div id="sidebar">
+                        <div class="side-box">
+                            <h2>&nbsp;&nbsp;&nbsp;&nbsp;重新排序</h2>
+                            <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;默认为lucene搜索结果，可重新排序</h3>
+                            <ul>
+                                <li>
+                                    <form action="/s" method="POST">
+                                        <input type="hidden" name='hot' value=1 >
+                                        <input type="hidden" name='label' value=0 >
+                                        <input type='submit' id='hot_submit' value='按当前虾米音乐收听量排序'>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="/s" method="POST">
+                                        <input type="hidden" name='hot' value=1 >
+                                        <input type="hidden" name='label' value=0 >
+                                        <input type='submit' id='share_submit' value='按当前虾米音乐分享数排序'>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="side-box">
+                            <h2>&nbsp;&nbsp;&nbsp;&nbsp;按照音乐流派在结果中筛选</h2>
+                            <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将搜索结果重新POST进行筛选</h3>
+                            <ul>
+                                $for label in result[2]:
+                                <li>
+                                    <form action="/s" method="POST">
+                                        <input type="hidden" name='hot' value=0 >
+                                        <input type="hidden" name='label' value='$label' >
+                                        <input type='submit' id='label_submit' value='$label'>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- /sidebar -->
+                </div><!-- /main -->
+
+                <div id="footer">
+                    <span class="dev-info">Site Developed by <a href="www.xiami.com" target="_blank">www.xiami.com</a></span>
+                    <strong class="copy">All Content Copyright 2018 - SJTU IEEE. All Rights Reserved. </strong>
+                </div><!-- /footer -->
+
+            </div><!-- /wrapper -->
+        </div><!-- /wrapper-holder -->
+    <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+    </body>
+    </html>

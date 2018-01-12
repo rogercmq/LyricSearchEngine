@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Simple Search For Lyrics</title>
+	<meta name="description" content="Simple" />
+	<meta name="keywords" content="Simple" />
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
+	<link rel="stylesheet" type="text/css" media="screen,projection" href="/static/css/all.css" />
+	<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.main.js"></script>
+	<script type="text/javascript" src="/static/js/clear-fields.js"></script>
+</head>
+<body>
+	<div class="wrapper-holder">
+		<div id="wrapper">
+			<div id="header">
+				<div class="slogan">
+                    <a href="mailto:info@bestpsdfreebies.com"><img src="/static/images/social-icons/Mail.png" alt="email" /></a>&nbsp;
+                    <a href="../../facebook.com/bestpsdfreebies" target="_blank"><img src="/static/images/social-icons/Facebook.png" alt="Facebook" /></a>&nbsp;
+                    <a href="../../twitter.com/bestpsdfreebies" target="_blank"><img src="/static/images/social-icons/Twitter.png" alt="Twitter" /></a>&nbsp;
+                    <a href="#"><img src="/static/images/social-icons/RSS.png" alt="RSS Feed" /></a>
+                </div>
+                <strong class="logo"><a href="./">歌词引擎</a></strong>
+				<div class="header-area">
+					<div class="search-form">
+                        <form id='form' action="/img_res" method="POST" enctype="multipart/form-data">
+				            <input type="file" class ='SUBMIT' id='img_submit' name="img_input" multiple="multiple">
+                            <input type="image" class ='SUBMITGO' src="/static/images/btn-search.gif"/>
+			            </form>
+					</div>
+					<ul id="nav">
+						<li class="active"><a href="./">我们的主页</a></li>
+						<li><a href="./img">图片搜索</a></li>
+						<li><a href="./about">关于我们</a></li>
+						<li>
+							<a class="drop-item"><span>相关链接</span></a>
+							<ul>
+								<li><a href="http://www.xiami.com">虾米音乐</a></li>
+								<li><a href="http://www.sina.com.cn">新浪首页</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="gallery-area">
+					<ul class="gall-list">
+						<li>
+							<div class="img">
+								<img src="/static/images/slide1.jpg" alt="" width="360" height="400" />
+							</div>
+							<div class="txt-box">
+								<h2>歌词文本搜索</h2>
+								<p>
+									<font size="100">
+									输入歌词关键词，给您最想要的答案！
+								    在曲库中对您输入的关键词进行匹配，利用lucene建立索引，
+                                        同时支持输入歌名/专辑名/歌手名。
+                                    </font>
+								</p>
+							</div>
+						</li>
+						<li>
+							<div class="img">
+								<img src="/static/images/singer.jpg" alt="" width="360" height="400" />
+							</div>
+							<div class="txt-box">
+								<h2>图片搜索</h2>
+								<p>
+									上传歌手图片，
+								    在图片库中对您上传的图片进行HASH匹配，得到歌手，返回歌手热度最高的相关歌曲。
+								</p>
+								<a href="./img" class="signup">了解更多</a>
+							</div>
+						</li>
+						<li>
+							<div class="img">
+								<img src="/static/images/boss.jpg" alt="" width="360" height="400" />
+							</div>
+							<div class="txt-box">
+								<h2>项目团队介绍</h2>
+								<p>
+									本搜索引擎项目团队由4名上海交通大学电子信息科学类IEEE试点班同学共同开发。
+								</p>
+								<p>
+									Python爬虫：<strong>曹梦奇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+									Web前端：<strong>丁雨晨</strong>
+                                    <br>
+									索引：<strong>柳旭东&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+									图片哈希算法：<strong>罗英哲</strong>
+								</p>
+								<a href="./ab" class="signup">了解更多</a>
+							</div>
+						</li>
+					</ul>
+					<div class="pagination-area"></div>
+				</div>
+			</div><!-- /header -->
+			<div id="main">
+				<div class="info-area">
+					<div class="c">
+						<div class="block">
+							<h3 class="ttl-join-us">灵感来源</h3>
+							<a href="http://lins-bros.com/" class="link-area">
+								<span class="txt">本组的曹梦奇同学本来想做一个关于嘻哈音乐的资源整合型网站，但是大家对嘻哈音乐没有兴趣，我们对虾米音乐进行爬虫搭建了现在这个Simple Search歌词搜索引擎。</span>
+                                <span class="ttl">点击下面按钮跳转到中国嘻哈代表门户网站——lins-bros</span>
+								<span class="ico">
+									<img src="/static/images/ico-browse.png" alt="" width="95" height="95" />
+								</span>
+							</a>
+						</div>
+						<div class="block">
+							<h3 class="ttl-packages">痛点分析</h3>
+							<a href="http://geci.9ku.com/" class="link-area">
+								<span class="txt">目前市场上的歌词搜索引擎规模很小，歌曲质量不但不尽如人意，而且面临歌曲版权的问题，无法整合各大音乐平台资源进行闭环发展。</span>
+                                <span class="ttl">点击下面按钮跳转到国内歌词搜索引擎代表——九酷歌词网</span>
+                                <span class="ico">
+									<img src="/static/images/ico-browse.png" alt="http://geci.9ku.com/" width="95" height="95" />
+								</span>
+							</a>
+						</div>
+						<div class="block">
+							<h3 class="ttl-support">实验心得</h3>
+							<a href="../../support.bestpsdfreebies.com/default.htm" class="link-area">
+								<span class="txt">成功的合作需要具备的基本条件主要有:①一致的目标。任何合作都要有共同的目标,至少是短期的共同目标。②统一的认识和规范。合作者应对共同目标、实现途径和具体步骤等，有基本一致的认识；在联合行动中合作者必须遵守共同认可的社会规范和群体规范。③相互信赖的合作气氛。创造相互理解、彼此信赖、互相支持的良好气氛是有效合作的重要条件。④具有合作赖以生存和发展的一定物质基础。必要的物质条件（包括设备、通讯和交通器材工具等）是合作能顺利进行的前提，空间上的最佳配合距离，时间上的准时、有序，都是物质条件的组成部分。</span>
+							</a>
+						</div>
+					</div>
+					<div class="b">&nbsp;</div>
+				</div><!-- /info-area -->
+			</div><!-- /main -->
+			<div id="footer">
+				<span class="dev-info">Site Developed by <a href="www.xiami.com" target="_blank">www.xiami.com</a></span>
+				<strong class="copy">All Content Copyright 2018 - SJTU IEEE. All Rights Reserved. </strong>
+			</div><!-- /footer -->
+		</div><!-- /wrapper -->
+	</div><!-- /wrapper-holder -->
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>

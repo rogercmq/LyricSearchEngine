@@ -1,0 +1,113 @@
+$def with (song_inf)
+$if song_inf:
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <title>Simple Search For Lyrics</title>
+            <meta name="description" content="Simple" />
+            <meta name="keywords" content="Simple" />
+            <link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
+            <link rel="stylesheet" type="text/css" media="screen,projection" href="/static/css/all.css" />
+            <script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
+            <script type="text/javascript" src="/static/js/jquery.cycle.all.js"></script>
+            <script type="text/javascript" src="/static/js/jquery.main.js"></script>
+            <script type="text/javascript" src="/static/js/clear-fields.js"></script>
+        </head>
+        <body>
+            <div class="wrapper-holder">
+                <div id="wrapper">
+                    <div id="header">
+                        <div class="slogan">
+                            <a href="mailto:info@bestpsdfreebies.com"><img src="/static/images/social-icons/Mail.png" alt="email" /></a>&nbsp;
+                            <a href="../../facebook.com/bestpsdfreebies" target="_blank"><img src="/static/images/social-icons/Facebook.png" alt="Facebook" /></a>&nbsp;
+                            <a href="../../twitter.com/bestpsdfreebies" target="_blank"><img src="/static/images/social-icons/Twitter.png" alt="Twitter" /></a>&nbsp;
+                            <a href="#"><img src="/static/images/social-icons/RSS.png" alt="RSS Feed" /></a>
+                        </div>
+                        <strong class="logo"><a href="./">歌词引擎</a></strong>
+                        <div class="header-area">
+                            <div class="search-form">
+                                <form action="/s"  method="GET" id='form'>
+                                        <input id='input' type="text" class="txt-field" name="keyword" value='我爱你中国'>
+                                        <input type="image" class='SUBMITGO' src="/static/images/btn-search.gif"/>
+                                </form>
+                            </div>
+                            <ul id="nav">
+                                <li class="active"><a href="./">我们的主页</a></li>
+                                <li><a href="./img">图片搜索</a></li>
+                                <li><a href="./about">关于我们</a></li>
+                                <li>
+                                    <a class="drop-item"><span>相关链接</span></a>
+                                    <ul>
+                                        <li><a href="http://www.xiami.com">虾米音乐</a></li>
+                                        <li><a href="http://www.sina.com.cn">新浪首页</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- /header -->
+
+                    <div id="main">
+                        <div id="content">
+                            <div class="ttl-holder">
+                                <h1>$song_inf[0]</h1>
+                                <h1></h1>
+                                <h1></h1>
+                                <h2>歌手：$song_inf[2]&nbsp;&nbsp;&nbsp;专辑名： $song_inf[3]</h2>
+                            </div>
+                            <div class="txt-section">
+                                <div class="txt-hold">
+                                    <div class="img-box">
+                                        <img src='$song_inf[4]' alt='未找到图片' id='album_pic' width="222" height="221" />
+                                    </div>
+                                </div>
+                                $code:
+                                    def split233(genrestring):
+                                        gen = genrestring.split('\n')
+                                        newgen = []
+                                        for i in gen:
+                                            if (i != '\n') and (i != ' ') and (i != '') and (i != '\t'):
+                                                newgen.append(i)
+                                        return newgen
+                                <span class="alert-text01">
+                                    $for lyric in split233(song_inf[6])
+                                    <p>$lyric</p>
+                                </span>
+
+                                <div style="clear: both;"></div>
+                            </div>
+                        </div><!-- /content -->
+                        <div id="sidebar">
+                            <div class="side-box">
+                                <h2>&nbsp;&nbsp;&nbsp;&nbsp;原曲虾米链接</h2>
+                                <p></p>
+                                <p></p>
+                                <h3><a href="$song_inf[1]">$song_inf[1]</a></h3>
+                            </div>
+
+                            <div class="side-box">
+                                <div class="package">
+                                    <h3 class="pkg-value">Video / Value Package</h3>
+                                    <ul style="margin-bottom: 2px;">
+                                        $for sim in song_inf[7]:
+                                        <li>
+                                            <form action="/mus" method="POST" target='_blank'>
+                                                <input type="hidden" name='id' value='$sim[0]'>
+                                                <input type='submit' value='$sim[1]'>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div><!-- /sidebar -->
+                    </div><!-- /main -->
+
+                    <div id="footer">
+                        <span class="dev-info">Site Developed by <a href="www.xiami.com" target="_blank">www.xiami.com</a></span>
+                        <strong class="copy">All Content Copyright 2018 - SJTU IEEE. All Rights Reserved. </strong>
+                    </div><!-- /footer -->
+                </div><!-- /wrapper -->
+            </div><!-- /wrapper-holder -->
+        <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+        </body>
+    </html>
