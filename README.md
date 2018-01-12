@@ -34,3 +34,7 @@ Team project for course EE208，
   - 将歌曲设置ID，根据ID搭建简单的歌曲详细信息网页
   - 相似歌曲推荐
   - 图像哈希检索，搜索图片库中歌手图片，返回该歌手的歌曲
+
+
+ ### 若配置完毕，打开webserver里的server3.py进入localhost服务器，可以在网页上操作；</br>
+ ### PicSpider和SongInfoSpider文件夹中是两个scrapy project；
